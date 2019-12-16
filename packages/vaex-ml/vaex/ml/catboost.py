@@ -14,6 +14,7 @@ import catboost
 @vaex.serialize.register
 @generate.register
 class CatBoostModel(state.HasState):
+    snake_name = "catboost_model"
     '''The CatBoost algorithm.
 
     This class provides an interface to the CatBoost aloritham.

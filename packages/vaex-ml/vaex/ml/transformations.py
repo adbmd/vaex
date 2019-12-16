@@ -404,6 +404,7 @@ class MinMaxScaler(Transformer):
      3    2    0           0                  0.166667
      4   15   10           1                  1
     '''
+    snake_name = 'minmax_scaler'
     # title = Unicode(default_value='MinMax Scaler', read_only=True).tag(ui='HTML')
     feature_range = traitlets.Tuple(default_value=(0, 1), help='The range the features are scaled to.').tag().tag(ui='FloatRangeSlider')
     prefix = traitlets.Unicode(default_value="minmax_scaled_", help=help_prefix).tag(ui='Text')

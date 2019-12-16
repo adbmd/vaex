@@ -1,0 +1,492 @@
+[
+    {
+        "classname": "PCA",
+        "module": "vaex.ml.transformations",
+        "snake_name": "pca",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The eigen values that correspond to each feature.",
+                "name": "eigen_values_",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The eigen vectors corresponding to each feature",
+                "name": "eigen_vectors_",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The mean of each feature",
+                "name": "means_",
+                "type": "List"
+            },
+            {
+                "default": 0,
+                "has_default": false,
+                "help": "Number of components to retain. If None, all the components will be retained.",
+                "name": "n_components",
+                "type": "Int"
+            },
+            {
+                "default": "PCA_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            },
+            {
+                "default": false,
+                "has_default": false,
+                "help": "If True, display a progressbar of the PCA fitting process.",
+                "name": "progress",
+                "type": "CBool"
+            }
+        ]
+    },
+    {
+        "classname": "LabelEncoder",
+        "module": "vaex.ml.transformations",
+        "snake_name": "label_encoder",
+        "traits": [
+            {
+                "default": false,
+                "has_default": false,
+                "help": "If True, unseen values will be                                   encoded with -1, otherwise an error is raised",
+                "name": "allow_unseen",
+                "type": "Bool"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The encoded labels of each feature.",
+                "name": "labels_",
+                "type": "Dict"
+            },
+            {
+                "default": "label_encoded_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            }
+        ]
+    },
+    {
+        "classname": "OneHotEncoder",
+        "module": "vaex.ml.transformations",
+        "snake_name": "one_hot_encoder",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": 1,
+                "has_default": false,
+                "help": "Value to encode when a category is present.",
+                "name": "one",
+                "type": "Any"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The unique elements found in each feature.",
+                "name": "uniques_",
+                "type": "List"
+            },
+            {
+                "default": 0,
+                "has_default": false,
+                "help": "Value to encode when category is absent.",
+                "name": "zero",
+                "type": "Any"
+            }
+        ]
+    },
+    {
+        "classname": "FrequencyEncoder",
+        "module": "vaex.ml.transformations",
+        "snake_name": "frequency_encoder",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "",
+                "name": "mappings_",
+                "type": "Dict"
+            },
+            {
+                "default": "frequency_encoded_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            },
+            {
+                "default": "nan",
+                "has_default": false,
+                "help": "Strategy to deal with unseen values.",
+                "name": "unseen",
+                "type": "Enum"
+            }
+        ]
+    },
+    {
+        "classname": "StandardScaler",
+        "module": "vaex.ml.transformations",
+        "snake_name": "standard_scaler",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The mean of each feature",
+                "name": "mean_",
+                "type": "List"
+            },
+            {
+                "default": "standard_scaled_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The standard deviation of each feature.",
+                "name": "std_",
+                "type": "List"
+            },
+            {
+                "default": true,
+                "has_default": false,
+                "help": "If True, remove the mean from each feature.",
+                "name": "with_mean",
+                "type": "CBool"
+            },
+            {
+                "default": true,
+                "has_default": false,
+                "help": "If True, scale each feature to unit variance.",
+                "name": "with_std",
+                "type": "CBool"
+            }
+        ]
+    },
+    {
+        "classname": "MinMaxScaler",
+        "module": "vaex.ml.transformations",
+        "snake_name": "minmax_scaler",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The range the features are scaled to.",
+                "name": "feature_range",
+                "type": "Tuple"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The minimum value of a feature.",
+                "name": "fmax_",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The maximum value of a feature.",
+                "name": "fmin_",
+                "type": "List"
+            },
+            {
+                "default": "minmax_scaled_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            }
+        ]
+    },
+    {
+        "classname": "MaxAbsScaler",
+        "module": "vaex.ml.transformations",
+        "snake_name": "max_abs_scaler",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "Tha maximum absolute value of a feature.",
+                "name": "absmax_",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": "absmax_scaled_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            }
+        ]
+    },
+    {
+        "classname": "RobustScaler",
+        "module": "vaex.ml.transformations",
+        "snake_name": "robust_scaler",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The median of each feature.",
+                "name": "center_",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The percentile range to which to scale each feature to.",
+                "name": "percentile_range",
+                "type": "Tuple"
+            },
+            {
+                "default": "robust_scaled_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "The percentile range for each feature.",
+                "name": "scale_",
+                "type": "List"
+            },
+            {
+                "default": true,
+                "has_default": false,
+                "help": "If True, remove the median.",
+                "name": "with_centering",
+                "type": "CBool"
+            },
+            {
+                "default": true,
+                "has_default": false,
+                "help": "If True, scale each feature between the specified percentile range.",
+                "name": "with_scaling",
+                "type": "CBool"
+            }
+        ]
+    },
+    {
+        "classname": "SKLearnPredictor",
+        "module": "vaex.ml.sklearn",
+        "snake_name": "sklearn_predictor",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to use.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": false,
+                "help": "A scikit-learn estimator.",
+                "name": "model",
+                "type": "Any"
+            },
+            {
+                "default": "prediction",
+                "has_default": false,
+                "help": "The name of the virtual column housing the predictions.",
+                "name": "prediction_name",
+                "type": "Unicode"
+            }
+        ]
+    },
+    {
+        "classname": "CatBoostModel",
+        "module": "vaex.ml.catboost",
+        "snake_name": "catboost_model",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to use when fitting the CatBoostModel.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": false,
+                "help": "Number of boosting iterations.",
+                "name": "num_boost_round",
+                "type": "CInt"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "A dictionary of parameters to be passed on to the CatBoostModel model.",
+                "name": "params",
+                "type": "Dict"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "A dictionary of parameters to be passed to the Pool data object construction",
+                "name": "pool_params",
+                "type": "Dict"
+            },
+            {
+                "default": "catboost_prediction",
+                "has_default": false,
+                "help": "The name of the virtual column housing the predictions.",
+                "name": "prediction_name",
+                "type": "Unicode"
+            },
+            {
+                "default": "Probability",
+                "has_default": false,
+                "help": "The form of the predictions. Can be \"RawFormulaVal\", \"Probability\" or \"Class\".",
+                "name": "prediction_type",
+                "type": "Enum"
+            }
+        ]
+    },
+    {
+        "classname": "LightGBMModel",
+        "module": "vaex.ml.lightgbm",
+        "snake_name": "lightgbm_model",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to use when fitting the LightGBMModel.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": 0,
+                "has_default": false,
+                "help": "Number of boosting iterations.",
+                "name": "num_boost_round",
+                "type": "CInt"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "parameters to be passed on the to the LightGBM model.",
+                "name": "params",
+                "type": "Dict"
+            },
+            {
+                "default": "lightgbm_prediction",
+                "has_default": false,
+                "help": "The name of the virtual column housing the predictions.",
+                "name": "prediction_name",
+                "type": "Unicode"
+            }
+        ]
+    },
+    {
+        "classname": "XGBoostModel",
+        "module": "vaex.ml.xgboost",
+        "snake_name": "xgboost_model",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to use when fitting the XGBoostModel.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": 0,
+                "has_default": false,
+                "help": "Number of boosting iterations.",
+                "name": "num_boost_round",
+                "type": "CInt"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "A dictionary of parameters to be passed on to the XGBoost model.",
+                "name": "params",
+                "type": "Dict"
+            },
+            {
+                "default": "xgboost_prediction",
+                "has_default": false,
+                "help": "The name of the virtual column housing the predictions.",
+                "name": "prediction_name",
+                "type": "Unicode"
+            }
+        ]
+    }
+]

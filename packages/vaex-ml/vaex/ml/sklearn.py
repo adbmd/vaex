@@ -14,6 +14,7 @@ from vaex.ml.state import serialize_pickle
 @vaex.serialize.register
 @generate.register
 class Predictor(state.HasState):
+    snake_name = 'sklearn_predictor'
     '''This class wraps any scikit-learn estimator (a.k.a predictor) making it a vaex pipeline object.
 
     By wrapping any scikit-learn estimators with this class, it becomes a vaex

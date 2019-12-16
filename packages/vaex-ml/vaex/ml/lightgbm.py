@@ -19,6 +19,7 @@ lib = lightgbm.basic._LIB
 @vaex.serialize.register
 @generate.register
 class LightGBMModel(state.HasState):
+    snake_name = 'lightgbm_model'
     '''The LightGBM algorithm.
 
     This class provides an interface to the LightGBM algorithm, with some optimizations
