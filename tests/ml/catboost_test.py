@@ -129,12 +129,12 @@ def test_lightgbm_serialize(tmpdir):
     features = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
     target = 'class_'
 
-    gbm = ds.ml.catboost_model(target, features=features, num_boost_round=20, params=params_multiclass)
+    gbm = ds.ml.catboost_model(target=target, features=features, num_boost_round=20, params=params_multiclass)
     pl = vaex.ml.Pipeline([gbm])
     pl.save(str(tmpdir.join('test.json')))
     pl.load(str(tmpdir.join('test.json')))
 
-    gbm = ds.ml.catboost_model(target, features=features, num_boost_round=20, params=params_multiclass)
+    gbm = ds.ml.catboost_model(target=target, features=features, num_boost_round=20, params=params_multiclass)
     gbm.state_set(gbm.state_get())
     pl = vaex.ml.Pipeline([gbm])
     pl.save(str(tmpdir.join('test.json')))

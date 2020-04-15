@@ -53,7 +53,8 @@
                 "name": "progress",
                 "type": "CBool"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "LabelEncoder",
@@ -88,7 +89,8 @@
                 "name": "prefix",
                 "type": "Unicode"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "OneHotEncoder",
@@ -130,7 +132,8 @@
                 "name": "zero",
                 "type": "Any"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "FrequencyEncoder",
@@ -165,7 +168,8 @@
                 "name": "unseen",
                 "type": "Enum"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "StandardScaler",
@@ -214,7 +218,8 @@
                 "name": "with_std",
                 "type": "CBool"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "MinMaxScaler",
@@ -256,7 +261,8 @@
                 "name": "prefix",
                 "type": "Unicode"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "MaxAbsScaler",
@@ -284,7 +290,8 @@
                 "name": "prefix",
                 "type": "Unicode"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "RobustScaler",
@@ -340,10 +347,61 @@
                 "name": "with_scaling",
                 "type": "CBool"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
-        "classname": "SKLearnPredictor",
+        "classname": "CycleTransformer",
+        "module": "vaex.ml.transformations",
+        "snake_name": "cycle_transformer",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": 0,
+                "has_default": false,
+                "help": "The number of elements in one cycle.",
+                "name": "n",
+                "type": "CInt"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "Prefix for the x-component of the transformed features.",
+                "name": "prefix_x",
+                "type": "Unicode"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "Prefix for the y-component of the transformed features.",
+                "name": "prefix_y",
+                "type": "Unicode"
+            },
+            {
+                "default": "_x",
+                "has_default": false,
+                "help": "Suffix for the x-component of the transformed features.",
+                "name": "suffix_x",
+                "type": "Unicode"
+            },
+            {
+                "default": "_y",
+                "has_default": false,
+                "help": "Suffix for the y-component of the transformed features.",
+                "name": "suffix_y",
+                "type": "Unicode"
+            }
+        ],
+        "version": "1.0.0"
+    },
+    {
+        "classname": "Predictor",
         "module": "vaex.ml.sklearn",
         "snake_name": "sklearn_predictor",
         "traits": [
@@ -367,8 +425,116 @@
                 "help": "The name of the virtual column housing the predictions.",
                 "name": "prediction_name",
                 "type": "Unicode"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The name of the target column.",
+                "name": "target",
+                "type": "Unicode"
             }
-        ]
+        ],
+        "version": "1.0.0"
+    },
+    {
+        "classname": "SKLearnPredictor",
+        "module": "vaex.ml.sklearn",
+        "snake_name": "sk_learn_predictor",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to use.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": false,
+                "help": "A scikit-learn estimator.",
+                "name": "model",
+                "type": "Any"
+            },
+            {
+                "default": "prediction",
+                "has_default": false,
+                "help": "The name of the virtual column housing the predictions.",
+                "name": "prediction_name",
+                "type": "Unicode"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The name of the target column.",
+                "name": "target",
+                "type": "Unicode"
+            }
+        ],
+        "version": "1.0.0"
+    },
+    {
+        "classname": "IncrementalPredictor",
+        "module": "vaex.ml.sklearn",
+        "snake_name": "incremental_predictor",
+        "traits": [
+            {
+                "default": 1000000,
+                "has_default": false,
+                "help": "Number of samples to be sent to the model in each batch.",
+                "name": "batch_size",
+                "type": "Int"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to use.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": false,
+                "help": "A scikit-learn estimator with a `.fit_predict` method.",
+                "name": "model",
+                "type": "Any"
+            },
+            {
+                "default": 1,
+                "has_default": false,
+                "help": "Number of times each batch is sent to the model.",
+                "name": "num_epochs",
+                "type": "Int"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "A dictionary of key word arguments to be passed on to the `fit_predict` method of the `model`.",
+                "name": "partial_fit_kwargs",
+                "type": "Dict"
+            },
+            {
+                "default": "prediction",
+                "has_default": false,
+                "help": "The name of the virtual column housing the predictions.",
+                "name": "prediction_name",
+                "type": "Unicode"
+            },
+            {
+                "default": false,
+                "has_default": false,
+                "help": "If True, shuffle the samples before sending them to the model.",
+                "name": "shuffle",
+                "type": "Bool"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The name of the target column.",
+                "name": "target",
+                "type": "Unicode"
+            }
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "CatBoostModel",
@@ -416,14 +582,29 @@
                 "help": "The form of the predictions. Can be \"RawFormulaVal\", \"Probability\" or \"Class\".",
                 "name": "prediction_type",
                 "type": "Enum"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The name of the target column.",
+                "name": "target",
+                "type": "Unicode"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "LightGBMModel",
         "module": "vaex.ml.lightgbm",
         "snake_name": "lightgbm_model",
         "traits": [
+            {
+                "default": false,
+                "has_default": false,
+                "help": "Copy data or use the modified xgboost library for efficient transfer.",
+                "name": "copy",
+                "type": "Bool"
+            },
             {
                 "default": null,
                 "has_default": true,
@@ -451,8 +632,16 @@
                 "help": "The name of the virtual column housing the predictions.",
                 "name": "prediction_name",
                 "type": "Unicode"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The name of the target column.",
+                "name": "target",
+                "type": "Unicode"
             }
-        ]
+        ],
+        "version": "1.0.0"
     },
     {
         "classname": "XGBoostModel",
@@ -486,7 +675,15 @@
                 "help": "The name of the virtual column housing the predictions.",
                 "name": "prediction_name",
                 "type": "Unicode"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The name of the target column.",
+                "name": "target",
+                "type": "Unicode"
             }
-        ]
+        ],
+        "version": "1.0.0"
     }
 ]

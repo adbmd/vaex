@@ -62,6 +62,7 @@ class LightGBMModel(state.HasState):
      2            2.9             4.6             6.6            1.3         1    [2.50915444e-04 9.98431777e-01 1.31730785e-03]
     '''
     features = traitlets.List(traitlets.Unicode(), help='List of features to use when fitting the LightGBMModel.')
+    copy = traitlets.Bool(False, help='Copy data or use the modified xgboost library for efficient transfer.')
     target = traitlets.Unicode(allow_none=False, help='The name of the target column.')
     num_boost_round = traitlets.CInt(help='Number of boosting iterations.')
     params = traitlets.Dict(help='parameters to be passed on the to the LightGBM model.')
