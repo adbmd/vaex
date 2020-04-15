@@ -80,6 +80,14 @@ jobs:
         # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       shell: bash
+      if: matrix.os == 'windows-latest'
+      run: |
+        source activate vaex
+        python -m pytest tests
+        python -m vaex.ml.spec > packages/vaex-ml/vaex/ml/spec_new.json
+        diff packages/vaex-ml/vaex/ml/spec_new.json packages/vaex-ml/vaex/ml/spec.json
+    - name: Test with pytest (non-windows)
+      if: matrix.os != 'windows-latest'
       run: |
         ./ci/04-run-test-suite.sh
     - name: Test notebooks
