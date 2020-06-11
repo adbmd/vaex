@@ -401,6 +401,156 @@
         "version": "1.0.0"
     },
     {
+        "classname": "BayesianTargetEncoder",
+        "module": "vaex.ml.transformations",
+        "snake_name": "bayesian_target_encoder",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "",
+                "name": "mappings_",
+                "type": "Dict"
+            },
+            {
+                "default": "mean_encoded_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The name of the column containing the target variable.",
+                "name": "target",
+                "type": "Unicode"
+            },
+            {
+                "default": "nan",
+                "has_default": false,
+                "help": "Strategy to deal with unseen values.",
+                "name": "unseen",
+                "type": "Enum"
+            },
+            {
+                "default": 100,
+                "has_default": false,
+                "help": "Weight to be applied to the mean encodings (smoothing parameter).",
+                "name": "weight",
+                "type": "CFloat"
+            }
+        ],
+        "version": "1.0.0"
+    },
+    {
+        "classname": "WeightOfEvidenceEncoder",
+        "module": "vaex.ml.transformations",
+        "snake_name": "weight_of_evidence_encoder",
+        "traits": [
+            {
+                "default": 1e-06,
+                "has_default": false,
+                "help": "Small value taken as minimum fot the negatives, to avoid a division by zero",
+                "name": "epsilon",
+                "type": "Float"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "",
+                "name": "mappings_",
+                "type": "Dict"
+            },
+            {
+                "default": "woe_encoded_",
+                "has_default": false,
+                "help": "Prefix for the names of the transformed features.",
+                "name": "prefix",
+                "type": "Unicode"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The name of the column containing the target variable.",
+                "name": "target",
+                "type": "Unicode"
+            },
+            {
+                "default": "nan",
+                "has_default": false,
+                "help": "Strategy to deal with unseen values.",
+                "name": "unseen",
+                "type": "Enum"
+            }
+        ],
+        "version": "1.0.0"
+    },
+    {
+        "classname": "GroupByTransformer",
+        "module": "vaex.ml.transformations",
+        "snake_name": "groupby_transformer",
+        "traits": [
+            {
+                "default": null,
+                "has_default": true,
+                "help": "Dict where the keys are feature names and the values are vaex.agg objects.",
+                "name": "agg",
+                "type": "Dict"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "The feature on which to do the grouping.",
+                "name": "by",
+                "type": "Unicode"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "",
+                "name": "df_group_",
+                "type": "Instance"
+            },
+            {
+                "default": null,
+                "has_default": true,
+                "help": "List of features to transform.",
+                "name": "features",
+                "type": "List"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "Prefix for the names of the aggregate features in case of a collision.",
+                "name": "rprefix",
+                "type": "Unicode"
+            },
+            {
+                "default": "",
+                "has_default": false,
+                "help": "Suffix for the names of the aggregate features in case of a collision.",
+                "name": "rsuffix",
+                "type": "Unicode"
+            }
+        ],
+        "version": "1.0.0"
+    },
+    {
         "classname": "Predictor",
         "module": "vaex.ml.sklearn",
         "snake_name": "sklearn_predictor",
