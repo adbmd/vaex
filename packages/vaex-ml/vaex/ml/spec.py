@@ -40,6 +40,7 @@ def to_cls(cls):
         version=cls.__dict__.get("_version", "1.0.0"),
         module=cls.__module__,
         traits=lmapstar(to_trait, cls.class_traits().items()),
+        doc=cls.__doc__
     )
 
 

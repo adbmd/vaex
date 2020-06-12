@@ -75,6 +75,17 @@ if os.path.exists(filename_spec):
                             return dft
                         else:
                             return object
+
+                    # Add docstrings
+                    doc = '\n'
+                    for trait in class_spec['traits']:
+                        doc += f':param {trait["name"]}: {trait["help"]} \n'
+                    doc+= ':param transform: If True, return a shallow copy of the transformed DataFrame, otherwise the return fitted transformer. \n'
+                    try:
+                        wrapper.__doc__= class_spec['doc'] + doc
+                    except TypeError:
+                        wrapper.__doc__= class_spec['doc']
+
                     return wrapper
                 accessor = DataFrameAccessorML
                 name = class_spec['snake_name']
