@@ -58,7 +58,7 @@ if os.path.exists(filename_spec):
         else:
             for class_spec in spec:
                 def closure(class_spec=class_spec):
-                    def wrapper(self, features=None, transform=False, **kwargs):
+                    def wrapper(self, features=None, transform=True, **kwargs):
                         kwargs = kwargs.copy()  # we do modifications, so make a copy
                         features = features or self.df.get_column_names()
                         features = _ensure_strings_from_expressions(features)
