@@ -83,8 +83,8 @@ if os.path.exists(filename_spec):
                     doc += ':param transform: If True, return a shallow copy of the transformed DataFrame, otherwise the return fitted transformer. \n'
                     try:
                         wrapper.__doc__= class_spec['doc'] + doc
-                    except TypeError:
-                        wrapper.__doc__= class_spec['doc']
+                    except TypeError:  # unsupported operand type(s) for +: 'NoneType' and 'str'
+                        wrapper.__doc__= doc
 
                     return wrapper
                 accessor = DataFrameAccessorML
