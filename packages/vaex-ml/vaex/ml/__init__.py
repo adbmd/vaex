@@ -76,11 +76,11 @@ if os.path.exists(filename_spec):
                         else:
                             return object
 
-                    # Add docstrings
+                    # Append trait help strings to the docstring
                     doc = '\n'
                     for trait in class_spec['traits']:
                         doc += f':param {trait["name"]}: {trait["help"]} \n'
-                    doc+= ':param transform: If True, return a shallow copy of the transformed DataFrame, otherwise the return fitted transformer. \n'
+                    doc += ':param transform: If True, return a shallow copy of the transformed DataFrame, otherwise the return fitted transformer. \n'
                     try:
                         wrapper.__doc__= class_spec['doc'] + doc
                     except TypeError:
