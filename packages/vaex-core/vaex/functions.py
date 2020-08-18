@@ -118,7 +118,7 @@ maximum
 minimum
 rad2deg
 round
-searchsorteds
+searchsorted
 sin
 sinc
 sinh
