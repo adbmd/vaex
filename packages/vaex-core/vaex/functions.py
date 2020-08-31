@@ -101,7 +101,6 @@ arcsinh
 arctan
 arctan2
 arctanh
-argsort
 clip
 cos
 cosh
